@@ -93,8 +93,8 @@ const OrderList = () => {
                         description:
                             'Cập nhật thành công',
                     });
-                    handleCategoryList();
                     setOpenModalUpdate(false);
+                    handleCategoryList();
                 }
             })
             setLoading(false);
@@ -115,10 +115,9 @@ const OrderList = () => {
 
     const handleCategoryList = async () => {
         try {
-            await orderApi.getListOrder().then((res) => {
-                console.log(res);
+            await orderApi.getListOrder({ page: 1, limit: 10000 }).then((res) => {
                 setTotalList(res.totalDocs)
-                setOrder(res.data);
+                setOrder(res.data.docs);
                 setLoading(false);
             });
             ;
@@ -240,10 +239,10 @@ const OrderList = () => {
             key: 'status',
             dataIndex: 'status',
             render: (slugs) => (
-                <span>
-                    <Tag color="geekblue" key={slugs}>
-                        {slugs?.toUpperCase()}
-                    </Tag>
+                <span >
+                   {slugs === "rejected" ? <Tag style={{width: 80, textAlign: "center"}} color="red">Đã hủy</Tag> : slugs === "approved" ? <Tag color="geekblue" key={slugs}>
+                        Vận chuyển
+                    </Tag> : slugs === "final" ? <Tag color="green" style={{width: 80, textAlign: "center"}}>Đã giao</Tag> :<Tag color="blue" style={{width: 80, textAlign: "center"}}>Đợi xác nhận</Tag>}
                 </span>
             ),
         },
@@ -291,7 +290,7 @@ const OrderList = () => {
     useEffect(() => {
         (async () => {
             try {
-                await orderApi.getListOrder({ page: 1, limit: 1000 }).then((res) => {
+                await orderApi.getListOrder({ page: 1, limit: 10000 }).then((res) => {
                     console.log(res);
                     setTotalList(res.totalDocs)
                     setOrder(res.data.docs);
@@ -348,7 +347,7 @@ const OrderList = () => {
                     </div>
 
                     <div style={{ marginTop: 30 }}>
-                        <Table columns={columns} pagination={{ position: ['bottomCenter'] }} dataSource={order} />
+                        <Table columns={columns} pagination={{ position: ['bottomCenter'] }} dataSource={order} scroll={{ x: 1500 }}/>
                     </div>
                 </div>
 

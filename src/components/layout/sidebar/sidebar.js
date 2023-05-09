@@ -48,13 +48,7 @@ function Sidebar() {
       title: "Tin tức",
       link: "/news-list",
       icon: <BarsOutlined />
-    },
-    {
-      key: "notification",
-      title: "Thông báo",
-      link: "/notification",
-      icon: <NotificationOutlined />
-    },
+    }
   ];
 
   const menuSubEventAdmin = [

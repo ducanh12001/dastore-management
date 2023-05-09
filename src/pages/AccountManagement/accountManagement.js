@@ -87,13 +87,13 @@ const AccountManagement = () => {
                     {
 
                         text === "actived" ?
-                            <Tag color="green" key={text} style={{ width: 70, textAlign: "center" }}>
+                            <Tag color="green" key={text} style={{ width: 80, textAlign: "center" }}>
                                 Hoạt động
-                            </Tag> : text == "newer" ? <Tag color="blue" key={text} style={{ width: 70, textAlign: "center" }}>
+                            </Tag> : text == "newer" ? <Tag color="blue" key={text} style={{ width: 80, textAlign: "center" }}>
                                 Newer
                             </Tag>
 
-                                : <Tag color="default" key={text} style={{ width: 70, textAlign: "center" }}>
+                                : <Tag color="default" key={text} style={{ width: 80, textAlign: "center" }}>
                                     Chặn
                                 </Tag>
                     }

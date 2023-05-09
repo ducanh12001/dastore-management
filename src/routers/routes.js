@@ -25,81 +25,9 @@ const Login = lazy(() => {
         .then(([moduleExports]) => moduleExports);
 });
 
-const Home = lazy(() => {
-    return Promise.all([
-        import('../pages/Event/event'),
-        new Promise(resolve => setTimeout(resolve, 0))
-    ])
-        .then(([moduleExports]) => moduleExports);
-});
-
-const EventDetail = lazy(() => {
-    return Promise.all([
-        import('../pages/Event/EventDetail/eventDetail'),
-        new Promise(resolve => setTimeout(resolve, 0))
-    ])
-        .then(([moduleExports]) => moduleExports);
-});
-
-const EventCreate = lazy(() => {
-    return Promise.all([
-        import('../pages/Event/EventCreate/eventCreate'),
-        new Promise(resolve => setTimeout(resolve, 0))
-    ])
-        .then(([moduleExports]) => moduleExports);
-});
-
-const EventReject = lazy(() => {
-    return Promise.all([
-        import('../pages/Event/EventReject/eventReject'),
-        new Promise(resolve => setTimeout(resolve, 0))
-    ])
-        .then(([moduleExports]) => moduleExports);
-});
-
-const EventApproved = lazy(() => {
-    return Promise.all([
-        import('../pages/Event/EventApproved/eventApproved'),
-        new Promise(resolve => setTimeout(resolve, 0))
-    ])
-        .then(([moduleExports]) => moduleExports);
-});
-
-const OrganizingEvent = lazy(() => {
-    return Promise.all([
-        import('../pages/JoinedStudent/OrganizingEvent/OrganizingEvent'),
-        new Promise(resolve => setTimeout(resolve, 0))
-    ])
-        .then(([moduleExports]) => moduleExports);
-});
-
-const OrganizedEvent = lazy(() => {
-    return Promise.all([
-        import('../pages/JoinedStudent/OrganizedEvent/organizedEvent'),
-        new Promise(resolve => setTimeout(resolve, 0))
-    ])
-        .then(([moduleExports]) => moduleExports);
-});
-
 const AccountManagement = lazy(() => {
     return Promise.all([
         import('../pages/AccountManagement/accountManagement'),
-        new Promise(resolve => setTimeout(resolve, 0))
-    ])
-        .then(([moduleExports]) => moduleExports);
-});
-
-const OrganizingEventDetails = lazy(() => {
-    return Promise.all([
-        import('../pages/JoinedStudent/OrganizingEvent/OrganizingEventDetails/organizingEventDetails'),
-        new Promise(resolve => setTimeout(resolve, 0))
-    ])
-        .then(([moduleExports]) => moduleExports);
-});
-
-const OrganizedEventDetails = lazy(() => {
-    return Promise.all([
-        import('../pages/JoinedStudent/OrganizedEvent/OrganizedEventDetails/organizedEventDetails'),
         new Promise(resolve => setTimeout(resolve, 0))
     ])
         .then(([moduleExports]) => moduleExports);
@@ -116,14 +44,6 @@ const AccountCreate = lazy(() => {
 const Notification = lazy(() => {
     return Promise.all([
         import('../pages/Notifications/notification'),
-        new Promise(resolve => setTimeout(resolve, 0))
-    ])
-        .then(([moduleExports]) => moduleExports);
-});
-
-const EvaluationForm = lazy(() => {
-    return Promise.all([
-        import('../pages/EvaluationForm/evaluationForm'),
         new Promise(resolve => setTimeout(resolve, 0))
     ])
         .then(([moduleExports]) => moduleExports);
@@ -156,14 +76,6 @@ const DashBoard = lazy(() => {
 const NewsList = lazy(() => {
     return Promise.all([
         import('../pages/News/news'),
-        new Promise(resolve => setTimeout(resolve, 0))
-    ])
-        .then(([moduleExports]) => moduleExports);
-});
-
-const EventEdit = lazy(() => {
-    return Promise.all([
-        import('../pages/Event/EventEdit/eventEdit'),
         new Promise(resolve => setTimeout(resolve, 0))
     ])
         .then(([moduleExports]) => moduleExports);
@@ -231,46 +143,6 @@ const RouterURL = withRouter(({ location }) => {
                                 <DashBoard />
                             </Suspense>
                         </PrivateRoute>
-                        <PrivateRoute exact path="/event">
-                            <Suspense fallback={<LoadingScreen />}>
-                                <Home />
-                            </Suspense>
-                        </PrivateRoute>
-                        <PrivateRoute exact path="/event-detail/:id">
-                            <Suspense fallback={<LoadingScreen />}>
-                                <EventDetail />
-                            </Suspense>
-                        </PrivateRoute>
-                        <PrivateRoute exact path="/event-create">
-                            <Suspense fallback={<LoadingScreen />}>
-                                <EventCreate />
-                            </Suspense>
-                        </PrivateRoute>
-                        <PrivateRoute exact path="/event-edit/:id">
-                            <Suspense fallback={<LoadingScreen />}>
-                                <EventEdit />
-                            </Suspense>
-                        </PrivateRoute>
-                        <PrivateRoute exact path="/event-reject">
-                            <Suspense fallback={<LoadingScreen />}>
-                                <EventReject />
-                            </Suspense>
-                        </PrivateRoute>
-                        <PrivateRoute exact path="/event-approved">
-                            <Suspense fallback={<LoadingScreen />}>
-                                <EventApproved />
-                            </Suspense>
-                        </PrivateRoute>
-                        <PrivateRoute exact path="/organizing-event">
-                            <Suspense fallback={<LoadingScreen />}>
-                                <OrganizingEvent />
-                            </Suspense>
-                        </PrivateRoute>
-                        <PrivateRoute exact path="/organized-event">
-                            <Suspense fallback={<LoadingScreen />}>
-                                <OrganizedEvent />
-                            </Suspense>
-                        </PrivateRoute>
                         <PrivateRoute exact path="/profile">
                             <Suspense fallback={<LoadingScreen />}>
                                 <Profile />
@@ -294,25 +166,9 @@ const RouterURL = withRouter(({ location }) => {
                         <PrivateRoute exact path="/notfound">
                             <NotFound /></PrivateRoute>
 
-
-                        <PrivateRoute exact path="/organizing-details/:id">
-                            <Suspense fallback={<LoadingScreen />}>
-                                <OrganizingEventDetails />
-                            </Suspense>
-                        </PrivateRoute>
-                        <PrivateRoute exact path="/organized-details/:id">
-                            <Suspense fallback={<LoadingScreen />}>
-                                <OrganizedEventDetails />
-                            </Suspense>
-                        </PrivateRoute>
                         <PrivateRoute exact path="/notification">
                             <Suspense fallback={<LoadingScreen />}>
                                 <Notification />
-                            </Suspense>
-                        </PrivateRoute>
-                        <PrivateRoute exact path="/evaluation-form">
-                            <Suspense fallback={<LoadingScreen />}>
-                                <EvaluationForm />
                             </Suspense>
                         </PrivateRoute>
                         <PrivateRoute exact path="/product-list">

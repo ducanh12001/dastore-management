@@ -240,9 +240,9 @@ const OrderList = () => {
             dataIndex: 'status',
             render: (slugs) => (
                 <span >
-                   {slugs === "rejected" ? <Tag style={{width: 80, textAlign: "center"}} color="red">Đã hủy</Tag> : slugs === "approved" ? <Tag color="geekblue" key={slugs}>
+                   {slugs === "rejected" ? <Tag style={{width: 90, textAlign: "center"}} color="red">Đã hủy</Tag> : slugs === "approved" ? <Tag style={{width: 90, textAlign: "center"}} color="geekblue" key={slugs}>
                         Vận chuyển
-                    </Tag> : slugs === "final" ? <Tag color="green" style={{width: 80, textAlign: "center"}}>Đã giao</Tag> :<Tag color="blue" style={{width: 80, textAlign: "center"}}>Đợi xác nhận</Tag>}
+                    </Tag> : slugs === "final" ? <Tag color="green" style={{width: 90, textAlign: "center"}}>Đã giao</Tag> :<Tag color="blue" style={{width: 90, textAlign: "center"}}>Đợi xác nhận</Tag>}
                 </span>
             ),
         },
